@@ -239,17 +239,17 @@ namespace _Net {
         }
     }
 
-    void PostJsonToEndpoint(const string &in url, const string &in payload, const string &in key) {
-        auto data = UserData(key, {url, payload});
-        userData.InsertLast(data);
-        startnew(Hidden::Coro_PostJsonToEndpoint, @data);
-    }
+    // void PostJsonToEndpoint(const string &in url, const string &in payload, const string &in key) {
+    //     auto data = UserData(key, {url, payload});
+    //     userData.InsertLast(data);
+    //     startnew(CoroutineFuncUserdata(Hidden::Coro_PostJsonToEndpoint), @data);
+    // }
     
-    void DownloadFileToDestination(const string &in url, const string &in destination, const string &in key, const string &in overwriteFileName = "", bool noTmp = false) {
-        auto data = UserData(key, {url, destination, overwriteFileName, noTmp ? "true" : "false"});
-        userData.InsertLast(data);
-        startnew(Hidden::Coro_DownloadFileToDestination, @data);
-    }
+    // void DownloadFileToDestination(const string &in url, const string &in destination, const string &in key, const string &in overwriteFileName = "", bool noTmp = false) {
+    //     auto data = UserData(key, {url, destination, overwriteFileName, noTmp ? "true" : "false"});
+    //     userData.InsertLast(data);
+    //     startnew(CoroutineFuncUserdata(Hidden::Coro_DownloadFileToDestination), @data);
+    // }
 
     namespace Hidden {
         void Coro_PostJsonToEndpoint(UserData@ data) {
